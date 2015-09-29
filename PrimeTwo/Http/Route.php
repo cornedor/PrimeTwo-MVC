@@ -18,16 +18,26 @@ class Route {
 
 	// Public functions
 
+	public function __construct() {
+		$files = preg_grep('/^([^.])/', scandir(ROOT.'app/routes/'));
+		foreach($files as $file)
+			include ROOT.'app/routes/'.$file;
+	}
+
 	/**
 	 * This is usually called as a last resort and will most likely return some kind of 404 page
 	 * @param callable $function	A callback function with by default the request uri.
 	 * @return bool|mixed			Either the results of the callback or false is returned.
 	 */
-	public static function notFound(callable $function) {
+	public static function notFound($function) {
 		if(self::$match) {
 			return false;
 		}
 		return call_user_func($function, $_SERVER['REQUEST_URI']);
+	}
+
+	public function post($appRoute, $function) {
+		// testRequestMethod
 	}
 
 	/**
@@ -36,15 +46,18 @@ class Route {
 	 * @param  callable $function    	A callback function, for code execution when route matches.
 	 * @return bool|mixed   			Either the results of the callback or false is returned.
 	 */
-	public static function get($appRoute, callable $function) {
+	public static function get($appRoute, $function) {
 		if(self::$match) {
 			// a match has already been determined, return false on all other attempts
 			return false;
 		}
 
+		// testRequestMethod
+
 		// check if the url and uri match
 		if(self::matchUriToRoute($appRoute)) {
-			Debug::d(self::$paramData);
+			if(empty(self::$paramData))
+				return call_user_func($function);
 			return call_user_func_array($function, self::$paramData);
 		}
 		return false;
@@ -52,12 +65,17 @@ class Route {
 
 	// Private functions
 	
+	private static function testRequestMethod() {
+		// TODO: checks for request method
+	}
+
 	/**
 	 * Check if an application route matches the current REQUEST_URI.
 	 * @param  string $appRoute		Application route string to test.
 	 * @return bool            		Returns either true or false.
 	 */
-	private static function matchUriToRoute($appRoute) {
+	static function matchUriToRoute($appRoute) {
+        
 		// get and normalize the uri [filter bad stuff]
 		$requestUri = self::normalizeUri($_SERVER['REQUEST_URI']);
 
@@ -107,6 +125,7 @@ class Route {
 	 * @param  string $uriPart   	A part of the exploded request uri. Has to have the same key as $routePart.
 	 * @return bool             	Return either true or false depending on validity and compatibility.
 	 */
+	// TODO: add custom preg_match support
 	private static function variableMatchTest($routePart, $uriPart) {
 		if(preg_match('/{[$a-zA-Z]*}/', $routePart)) {
 			// routePart is looking for a variable

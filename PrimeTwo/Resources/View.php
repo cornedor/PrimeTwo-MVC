@@ -21,7 +21,6 @@ class View
      */
     static function render($name)
     {
-
         if(is_file(ROOT.'app/views/'.$name.'.php')){
             include ROOT.'app/views/'.$name.'.php';
             return true;

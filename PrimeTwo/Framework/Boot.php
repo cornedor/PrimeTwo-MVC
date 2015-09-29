@@ -9,8 +9,8 @@
 namespace PrimeTwo\Framework;
 
 use Illuminate\Database\Capsule\Manager as Capsule;
-use PrimeTwo\Http\Routing as Routing;
-use PrimeTwo\Framework\Configuration as Configuration;
+
+use PrimeTwo\Http\Route as Route;
 use PrimeTwo\Http\Session;
 
 /**
@@ -29,7 +29,7 @@ class Boot
         $this->bootConfiguration();
         $this->bootSession();
         $this->bootDatabase();
-        $this->bootRouting();
+        $this->bootRoute();
     }
 
     /**
@@ -45,9 +45,9 @@ class Boot
     /**
      * Boot routing
      */
-    private function bootRouting()
+    private function bootRoute()
     {
-        new Routing;
+        new Route;
     }
 
     /**
