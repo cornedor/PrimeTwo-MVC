@@ -8,6 +8,8 @@
 
 namespace PrimeTwo\Resources;
 
+use PrimeTwo\Framework\Debug;
+use PrimeTwo\Framework\File as File;
 
 class View
 {
@@ -21,16 +23,11 @@ class View
      */
     static function render($name)
     {
-        if(is_file(ROOT.'app/views/'.$name.'.php')){
-            include ROOT.'app/views/'.$name.'.php';
-            return true;
-        }elseif(is_file(ROOT.'app/views/'.ucfirst($name.'.php'))){
-            include ROOT.'app/views/'.ucfirst($name).'.php';
-            return true;
-        }elseif(is_file(ROOT.'app/views/'.strtolower($name.'.php'))){
-            include ROOT.'app/views/'.strtolower($name).'.php';
-            return true;
-        }
+
+        $path = ROOT.'app/views/';
+
+        if(File::stringToFile($name, $path, '.php'))
+            include File::stringToFile($name, $path, '.php');
 
         return false;
     }

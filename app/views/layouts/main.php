@@ -15,6 +15,5 @@
 </head>
 <body>
     <h2>I got rendered!</h2>
-<?php echo \PrimeTwo\Framework\File::stringToFile('layouts.main'); ?>
 </body>
 </html>

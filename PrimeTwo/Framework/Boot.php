@@ -33,7 +33,7 @@ class Boot
     }
 
     /**
-     * Boot databse connection
+     * Boot database connection
      */
     private function bootDatabase()
     {

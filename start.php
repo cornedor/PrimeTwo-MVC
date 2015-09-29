@@ -5,5 +5,3 @@ use PrimeTwo\Resources\View as View;
 
 define('ROOT',__DIR__.'/');
 new Boot;
-
-View::render('main');

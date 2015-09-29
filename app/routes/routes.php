@@ -20,7 +20,7 @@ Route::get('/about/{$foo}', function($foo) {
 });
 
 Route::get('/render', function(){
-   View::render('main');
+   View::render('layouts.main');
 });
 
 // this function only works correctly at the bottom of the index
