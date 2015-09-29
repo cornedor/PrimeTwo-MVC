@@ -11,6 +11,7 @@ namespace PrimeTwo\Framework;
 use Illuminate\Database\Capsule\Manager as Capsule;
 use PrimeTwo\Http\Routing as Routing;
 use PrimeTwo\Framework\Configuration as Configuration;
+use PrimeTwo\Http\Session;
 
 /**
  * Class Boot
@@ -26,6 +27,7 @@ class Boot
     public function __construct()
     {
         $this->bootConfiguration();
+        $this->bootSession();
         $this->bootDatabase();
         $this->bootRouting();
     }
@@ -40,13 +42,27 @@ class Boot
         $capsule->bootEloquent();
     }
 
+    /**
+     * Boot routing
+     */
     private function bootRouting()
     {
         new Routing;
     }
 
+    /**
+     * Boot configuration
+     */
     private function bootConfiguration()
     {
         $this->configuration = new Configuration();
+    }
+
+    /**
+     * Boot Sessions
+     */
+    private function bootSession()
+    {
+        Session::init();
     }
 }
