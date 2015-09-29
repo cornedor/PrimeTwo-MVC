@@ -1,6 +1,7 @@
 <?php
 
 use PrimeTwo\Http\Route as Route;
+use PrimeTwo\Resources\View as View;
 
 Route::get('/about/{$foo}/{$bar}', function($foo, $bar) {
     echo 'This is the about: '.$foo.' AND '.$bar.' page.';
@@ -16,6 +17,10 @@ Route::get('/about', function() {
 
 Route::get('/about/{$foo}', function($foo) {
     echo 'this is the about '.$foo.' page.';
+});
+
+Route::get('/render', function(){
+   View::render('main');
 });
 
 // this function only works correctly at the bottom of the index
