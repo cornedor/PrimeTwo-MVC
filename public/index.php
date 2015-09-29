@@ -1,11 +1,18 @@
 <?php
 /**
- * 	PrimeTwo PHP Framework
+ * PrimeTwo-MVC
+ * Created by: koen
+ * Date: 9/28/15
+ * Time: 3:07 PM
  */
 
 // for now manually set debug stuff
 error_reporting(E_ALL);
 ini_set('display_errors', 'On');
+
+require '../vendor/autoload.php';
+require '../config/database.php';
+require '../start.php';
 
 // for now just include some classes
 include '../PrimeTwo/Route.php';
