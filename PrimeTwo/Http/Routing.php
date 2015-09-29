@@ -12,6 +12,6 @@ class Routing
 {
     public function __construct()
     {
-        echo 'routing constructed';
+//        echo 'routing constructed';
     }
 }
