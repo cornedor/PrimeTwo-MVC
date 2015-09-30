@@ -22,7 +22,7 @@ class File
     public static function stringToFile($string, $prefix = '', $extension = ''){
 
         $path = str_replace('.','/',$string);
-        $file = trim($prefix,'/') . '/' . trim($path, '/') . $extension;
+        $file = rtrim($prefix,'/') . '/' . trim($path, '/') . $extension;
 
         if(is_file($file))
             return $file;
