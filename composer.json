@@ -1,0 +1,25 @@
+{
+    "name": "koen/prime-two-mvc",
+    "description": "PrimeTwo is a MVC framework written in PHP for a school project",
+    "type": "framework",
+    "require": {
+        "illuminate/database": "^5.1",
+        "filp/whoops": "^1.1"
+    },
+    "license": "GNU v2",
+    "authors": [
+        {
+            "name": "Koen Hendriks",
+            "email": "info@koenhendriks.com"
+        },
+        {
+            "name": "Peter Schriever",
+            "email": "peterzen72@gmail.com"
+        }
+    ],
+  "autoload": {
+    "psr-0": {
+      "PrimeTwo":     ""
+    }
+  }
+}
