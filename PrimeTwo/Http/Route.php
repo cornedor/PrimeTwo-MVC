@@ -67,7 +67,6 @@ class Route {
 	 */
 	public static function get($appRoute, $callback) {
         $appRoute = self::normalizeRoute($appRoute);
-        Debug::d($appRoute);
         // check if the url and uri match and extract uri parameters
         if(self::matchUriToRoute($appRoute, "GET")) {
             return self::runCallback($callback);
