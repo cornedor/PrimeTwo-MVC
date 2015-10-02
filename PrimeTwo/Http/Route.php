@@ -47,7 +47,6 @@ class Route {
     public static function post($appRoute, $callback) {
         $appRoute = self::normalizeRoute($appRoute);
         if(self::matchUriToRoute($appRoute, "POST")) {
-            // TODO: extract formdata and create Post/Input class?
             // for now just add the $_POST variable
             // 2015-10-02: disabled this so u can use uri parameters
             //self::$paramData = $_POST;
@@ -217,6 +216,7 @@ class Route {
 	public static function normalizeUri($uri) {
 		// do filtering stuff and remove htmltags/script language
 		// and all bad stuff in general that shouldnt be in an uri string
+        $uri = htmlentities($uri);
 		return $uri;
 	}
 
