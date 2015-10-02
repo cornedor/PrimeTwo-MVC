@@ -4,7 +4,7 @@ use PrimeTwo\Framework\Debug;
 use PrimeTwo\Http\Route as Route;
 use PrimeTwo\Resources\View as View;
 
-Route::get('/about/{$foo}/{$bar}', function($foo, $bar) {
+Route::get('about/{$foo}/{$bar}', function($foo, $bar) {
     echo 'This is the about: '.$foo.' AND '.$bar.' page.';
 });
 
@@ -12,11 +12,11 @@ Route::get('/', function() {
     echo 'this is the / route.';
 });
 
-Route::get('/about', function() {
-    echo 'this is the /about route.';
+Route::get('about', function() {
+    echo 'this is the about route.';
 });
 
-Route::get('/about/{$foo}', function($foo) {
+Route::get('about/{$foo}', function($foo) {
     echo 'this is the about '.$foo.' page.';
 });
 
@@ -33,12 +33,16 @@ Route::get('/post', function() {
     <?php
 });
 
-// TODO: magic met addslashes (zie koens versie: Framework\File.php)
 Route::post('/post', function($postdata) {
     Debug::d($postdata);
 });
 
+// binding a route to a method examples
 Route::get('/contact', 'index@ContactController');
+Route::get('/contact/edit', 'edit@ContactController'); // dunno why you would want this but hey im just testing stuff
+Route::get('/contact/edit/{$contactid}', 'edit@ContactController');
+Route::post('/contact/update/{$contactId}', 'update@ContactController');
+Route::post('/contact/update', 'update@ContactController');
 
 
 
