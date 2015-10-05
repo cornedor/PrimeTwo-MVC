@@ -1,5 +1,6 @@
 <?php
 
+use PrimeTwo\Framework\Debug;
 use PrimeTwo\Http\Route as Route;
 
 Route::get('/about/{$foo}/{$bar}', function($foo, $bar) {
@@ -19,8 +20,26 @@ Route::get('/about/{$foo}', function($foo) {
 });
 
 Route::get('/render', function(){
-    View::render('layouts.main');
+   View::render('layouts.main');
 });
+
+Route::get('/post', function() {
+    ?>
+    <form method="POST" action="/post">
+        <label for="textInput">textInput:</label><input id="textInput" type="text" name="textInput"><br/>
+        <label for="submit">submit:</label><input id="submit" type="submit" name="submit"><br/>
+    </form>
+    <?php
+});
+
+// TODO: magic met addslashes (zie koens versie: Framework\File.php)
+Route::post('/post', function($postdata) {
+    Debug::d($postdata);
+});
+
+Route::get('/contact', 'index@ContactController');
+
+
 
 // this function only works correctly at the bottom of the index
 // im not sure how to fix that -peter
