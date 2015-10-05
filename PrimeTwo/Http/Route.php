@@ -38,43 +38,98 @@ class Route {
         return call_user_func($callback, $_SERVER['REQUEST_URI']);
 	}
 
-    // TODO: check if $callback is a callable or a string.
-	public static function post($appRoute, $callback) {
+    /**
+     * Try to match an application route with the current request uri and post request method
+     * @param $appRoute
+     * @param $callback
+     * @return bool|mixed
+     */
+    public static function post($appRoute, $callback) {
+        $appRoute = self::normalizeRoute($appRoute);
         if(self::matchUriToRoute($appRoute, "POST")) {
-            // TODO: extract formdata
+            // for now just add the $_POST variable
+            // 2015-10-02: disabled this so u can use uri parameters
+            //self::$paramData = $_POST;
             self::$match = true;
 
             return self::runCallback($callback);
-
             //return call_user_func_array($callback, $_POST);
         }
         return false;
     }
 
-    private static function runCallback($callback) {
-        // check if it is in string form
-
-    }
-
-	/**
-	 * Try to match an application route with the current request uri
+    /**
+	 * Try to match an application route with the current request uri and get request method
 	 * @param  string   $appRoute 		Application route to match
 	 * @param  callable $callback    	A callback function, for code execution when route matches.
 	 * @return bool|mixed   			Either the results of the callback or false is returned.
 	 */
 	public static function get($appRoute, $callback) {
-        // check if the url and uri match
-		if(self::matchUriToRoute($appRoute, "GET")) {
-			if(empty(self::$paramData))
-				return call_user_func($callback);
-			return call_user_func_array($callback, self::$paramData);
+        $appRoute = self::normalizeRoute($appRoute);
+        // check if the url and uri match and extract uri parameters
+        if(self::matchUriToRoute($appRoute, "GET")) {
+            return self::runCallback($callback);
 		}
 		return false;
 	}
 
-	// Private functions
+    // Private functions
 
-	/**
+    /**
+     * Do magic with slashes and trim. Normalize the users route string.
+     * @param $route
+     * @return string
+     */
+    private static function normalizeRoute($route) {
+        $route = str_replace('.','/',$route);
+        return '/'.trim($route, '/');
+    }
+
+    /**
+     * Run either a class::method for strings or run call_user_func for function callbacks
+     * @param $callback
+     * @return bool|mixed
+     */
+    private static function runCallback($callback) {
+        // check if it is a callable/function
+        if(is_callable($callback)) {
+            self::$match = true;
+            if(!empty(self::$paramData)) {
+                return call_user_func_array($callback, self::$paramData);
+            } else {
+                return call_user_func($callback);
+            }
+        }
+        // check if it is a controller string
+        if(is_string($callback)) {
+            $pattern = '/[a-zA-Z]*@[a-zA-Z]*/';
+            if(preg_match($pattern, $callback)) {
+                $arrCallback = explode("@", $callback);
+                try {
+                    $class = new $arrCallback[1]();
+                    if(!empty(self::$paramData))
+                        $result = call_user_func_array([$class,$arrCallback[0]], self::$paramData);
+                    else
+                        $result = $class->$arrCallback[0]();
+
+                    self::$match = true;
+                    echo $result;
+                } catch(\Exception $e) {
+                    Debug::d($e->getMessage());
+                    // TODO: add whoops or custom errorhandling support?
+                    return false;
+                }
+            } else {
+                // doesn't match method@controller pattern
+                // TODO: add whoops or custom errorhandler support?
+                return false;
+            }
+        }
+        // TODO: add whoops or custom errorhandler support?
+        return false;
+    }
+
+    /**
 	 * Check if an application route matches the current REQUEST_URI.
 	 * @param  string $appRoute		    Application route string to test.
      * @param  string $requestMethod    Optionally test if the request methods match. Defaults to GET
@@ -161,6 +216,7 @@ class Route {
 	public static function normalizeUri($uri) {
 		// do filtering stuff and remove htmltags/script language
 		// and all bad stuff in general that shouldnt be in an uri string
+        $uri = htmlentities($uri);
 		return $uri;
 	}
 
