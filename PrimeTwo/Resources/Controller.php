@@ -8,6 +8,8 @@
 
 namespace PrimeTwo\Resources;
 
+use PrimeTwo\Resources\View;
+
 
 class Controller
 {

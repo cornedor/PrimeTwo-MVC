@@ -1,6 +1,7 @@
 <?php
 use PrimeTwo\Framework\Debug;
 use PrimeTwo\Http\Input;
+use PrimeTwo\Resources\Controller;
 use PrimeTwo\Resources\View;
 
 /**
@@ -9,10 +10,11 @@ use PrimeTwo\Resources\View;
  * Date: 9/30/15
  * Time: 4:38 PM
  */
-class ContactController
+class ContactController extends Controller
 {
 
     public function index() {
+        View::render('main');
         return 'index@ContactController says: contacts overview could be placed here';
     }
 
