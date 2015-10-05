@@ -1,6 +1,7 @@
 <?php
 
 use PrimeTwo\Framework\Debug;
+use PrimeTwo\Http\Input;
 use PrimeTwo\Http\Route as Route;
 
 Route::get('about/{$foo}/{$bar}', function($foo, $bar) {
@@ -32,8 +33,10 @@ Route::get('/post', function() {
     <?php
 });
 
-Route::post('/post', function($postdata) {
-    Debug::d($postdata);
+Route::post('/post', function() {
+    // postdata wordt niet meer doorgestuurd als parameters
+    // nu beschikbaar via Input class :)
+    Debug::d(Input::all());
 });
 
 // binding a route to a method examples
