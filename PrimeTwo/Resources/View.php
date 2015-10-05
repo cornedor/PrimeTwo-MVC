@@ -6,12 +6,9 @@
  * Time: 1:26 PM
  */
 
-namespace PrimeTwo\Resources;
-
-use PrimeTwo\Framework\Debug;
 use PrimeTwo\Framework\File as File;
 
-class View
+abstract class View
 {
     public $parameters;
 
@@ -21,13 +18,17 @@ class View
      * @param $name
      * @return bool
      */
-    static function render($name)
+    public static function render($name)
     {
 
         $path = ROOT.'app/views/';
 
-        if(File::stringToFile($name, $path, '.php'))
-            include File::stringToFile($name, $path, '.php');
+
+        if(File::stringToFile($name, $path))
+            include File::stringToFile($name, $path);
+        else
+            //TODO: throw errors
+
 
         return false;
     }

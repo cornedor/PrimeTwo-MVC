@@ -14,6 +14,11 @@
     <title>Main View</title>
 </head>
 <body>
-    <h2>I got rendered!</h2>
+    <h2>I got rendered! </h2>
+    <?php
+     View::render('layouts.footer');
+
+
+    ?>
 </body>
 </html>

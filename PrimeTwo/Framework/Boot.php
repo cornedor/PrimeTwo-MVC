@@ -22,6 +22,9 @@ use PrimeTwo\Http\Session;
  */
 class Boot
 {
+    /**
+     * @var configuration file loaded by Configuration class
+     */
     public $configuration;
 
     public function __construct()
@@ -65,4 +68,11 @@ class Boot
     {
         Session::init();
     }
+
+    public static function loader($name){
+
+    }
+
+
+
 }

@@ -19,7 +19,7 @@ class File
      * @param string $extension
      * @return bool|string
      */
-    public static function stringToFile($string, $prefix = '', $extension = ''){
+    public static function stringToFile($string, $prefix = '', $extension = '.php'){
 
         $path = str_replace('.','/',$string);
         $file = rtrim($prefix,'/') . '/' . trim($path, '/') . $extension;

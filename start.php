@@ -1,7 +1,9 @@
 <?php
 
 use PrimeTwo\Framework\Boot as Boot;
-use PrimeTwo\Resources\View as View;
 
 define('ROOT',__DIR__.'/');
+require_once(ROOT.'PrimeTwo/Resources/View.php');
+
+spl_autoload_register('PrimeTwo\Framework\Boot::loader');
 new Boot;
