@@ -2,7 +2,6 @@
 use PrimeTwo\Framework\Debug;
 use PrimeTwo\Http\Input;
 use PrimeTwo\Resources\Controller;
-use PrimeTwo\Resources\View;
 
 /**
  * Created by PhpStorm.

@@ -8,9 +8,20 @@
 
 use PrimeTwo\Framework\File as File;
 
-abstract class View
+class View
 {
-    public $parameters;
+    private static $initialized = false;
+
+    /**
+     * Initialize static class
+     */
+    private static function initialize()
+    {
+        if (self::$initialized)
+            return;
+
+        self::$initialized = true;
+    }
 
     /**
      * Render a view
@@ -20,6 +31,8 @@ abstract class View
      */
     public static function render($name)
     {
+        if(!self::$initialized)
+            self::$initialized = true;
 
         $path = ROOT.'app/views/';
 

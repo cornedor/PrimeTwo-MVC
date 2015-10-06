@@ -25,7 +25,7 @@ class Boot
     /**
      * @var configuration file loaded by Configuration class
      */
-    public $configuration;
+    public static $configuration;
 
     public function __construct()
     {
@@ -41,7 +41,7 @@ class Boot
     private function bootDatabase()
     {
         $capsule = new Capsule();
-        $capsule->addConnection($this->configuration->get('database'));
+        $capsule->addConnection(self::$configuration->get('database'));
         $capsule->bootEloquent();
     }
 
@@ -58,7 +58,7 @@ class Boot
      */
     private function bootConfiguration()
     {
-        $this->configuration = new Configuration();
+        self::$configuration = new Configuration();
     }
 
     /**
@@ -70,7 +70,10 @@ class Boot
     }
 
     public static function loader($name){
-
+        $app = self::$configuration->get('app');
+        $file = ROOT.str_replace('\\','/', $app['Facades'][$name].'.php');
+        if(file_exists($file))
+            include_once($file);
     }
 
 

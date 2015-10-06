@@ -28,6 +28,7 @@ class Configuration
     public function get($configName)
     {
         $config = $this->getConfiguration();
+
         return $config[$configName];
     }
 
@@ -64,7 +65,7 @@ class Configuration
     public function pushConfiguration($configurationFile)
     {
         $config = $this->getConfiguration();
-        $name = trim($configurationFile,'.php');
+        $name = str_replace('.php','', $configurationFile);
         $config[$name]  = $this->fetchConfig($configurationFile);
         $this->setConfiguration($config);
 
