@@ -19,9 +19,9 @@ class Configuration
      */
     public function __construct()
     {
-        $this->setConfigPath(ROOT.'config/');
+        $this->setConfigPath(ROOT . 'config/');
         $files = preg_grep('/^([^.])/', scandir($this->getConfigPath()));
-        foreach($files as $file)
+        foreach ($files as $file)
             $this->pushConfiguration($file);
     }
 
@@ -65,8 +65,8 @@ class Configuration
     public function pushConfiguration($configurationFile)
     {
         $config = $this->getConfiguration();
-        $name = str_replace('.php','', $configurationFile);
-        $config[$name]  = $this->fetchConfig($configurationFile);
+        $name = str_replace('.php', '', $configurationFile);
+        $config[$name] = $this->fetchConfig($configurationFile);
         $this->setConfiguration($config);
 
         return $config;
@@ -80,8 +80,8 @@ class Configuration
      */
     public function fetchConfig($configurationFile)
     {
-        if(is_file($this->getConfigPath().$configurationFile))
-          return include $this->getConfigPath().$configurationFile;
+        if (is_file($this->getConfigPath() . $configurationFile))
+            return include $this->getConfigPath() . $configurationFile;
         return false;
     }
 
