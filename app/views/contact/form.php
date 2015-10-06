@@ -1,12 +1,3 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: peterzen
- * Date: 10/2/15
- * Time: 11:03 AM
- */
-?>
-
 <!doctype html>
 <html lang="en">
 <head>

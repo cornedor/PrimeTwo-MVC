@@ -13,13 +13,15 @@ class ContactController extends Controller
 {
 
     public function index() {
-        View::render('main');
-        return 'index@ContactController says: contacts overview could be placed here';
+
+        $string =  'index@ContactController says: contacts overview could be placed here';
+        View::render('contact.index', compact('string'));
+
     }
 
     public function edit($contactId = null) {
         //TODO: add $contactId or $contactName to the view.
-        View::render('contactForm');
+        View::render('contact.form');
 
         echo '<br/><hr/>';
         Debug::d($contactId);
@@ -27,12 +29,13 @@ class ContactController extends Controller
     }
 
     public function update($contactId = null) {
-        if(empty($contactId)) {
-            if(empty(Input::get('id'))) {
-                return false;
-            }
-            $contactId = Input::get('id');
-        }
+        // if empty? geeft Can't use function return value in write context TODO fix dit
+//        if(empty($contactId)) {
+//            if(empty(Input::get('id'))) {
+//                return false;
+//            }
+//            $contactId = Input::get('id');
+//        }
 
         // testing the Input class
         echo "<hr/>";

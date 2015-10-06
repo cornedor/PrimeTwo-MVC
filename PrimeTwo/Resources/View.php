@@ -27,19 +27,21 @@ class View
      * Render a view
      *
      * @param $name
+     * @param array $parameters
      * @return bool
      */
-    public static function render($name)
+    public static function render($name, $parameters = array())
     {
         if(!self::$initialized)
             self::$initialized = true;
 
         $path = ROOT.'app/views/';
 
-
-        if(File::stringToFile($name, $path))
+        if(File::stringToFile($name, $path)){
+            if(is_array($parameters))
+                extract($parameters);
             include File::stringToFile($name, $path);
-        else
+        } else
             //TODO: throw errors
 
 

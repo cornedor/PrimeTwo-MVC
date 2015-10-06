@@ -8,9 +8,8 @@
 
 namespace PrimeTwo\Resources;
 
-use PrimeTwo\Resources\View as View;
-
 class Controller
 {
+    // TODO add base controller functionality here
 
 }
