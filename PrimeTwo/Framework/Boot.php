@@ -41,7 +41,7 @@ class Boot
     private function bootDatabase()
     {
         $capsule = new Capsule();
-        $capsule->addConnection(self::$configuration->get('database')['mysql']);
+        $capsule->addConnection(self::$configuration->get('database')['mysql']); //TODO make config dynamic driver
         $capsule->setAsGlobal();
         $capsule->bootEloquent();
 
