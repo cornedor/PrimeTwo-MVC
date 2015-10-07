@@ -20,12 +20,22 @@ class ContactController extends Controller
     }
 
     public function edit($contactId = null) {
-        //TODO: add $contactId or $contactName to the view. | passing parameters to views.
-        View::render('contact.form');
+        $_GET['id'] = $contactId;
+        Debug::d(Input::all());
+        die();
+        if(empty($contactId)) {
+            if(empty(Input::get('id'))) {
+                // TODO: adding a redirect is probably better.
+                throw new Exception('$contactId was not found or empty.');
+            }
+            $contactId = Input::get('id');
+        }
 
-        echo '<br/><hr/>';
-        Debug::d($contactId);
-        return 'Hi from edit@ContactController';
+        $string = '<br/><hr/>Hi from edit@ContactController';
+
+        View::render('contact.form', compact('contactId', 'string'));
+
+        //Debug::d($contactId);
     }
 
     public function update($contactId = null) {

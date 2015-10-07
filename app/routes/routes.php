@@ -39,7 +39,8 @@ Route::post('post', function() {
 
 // binding a route to a method examples
 Route::get('contact', 'index@ContactController');
-Route::get('contact/edit', 'edit@ContactController'); // dunno why you would want this but hey im just testing stuff
+Route::post('contact/edit', 'edit@ContactController'); // dunno why you would want this but hey im just testing stuff
+//Route::get('contact/edit', 'edit@ContactController'); // dunno why you would want this but hey im just testing stuff
 Route::get('contact/edit/{$contactid}', 'edit@ContactController');
 Route::post('contact/update/{$contactId}', 'update@ContactController');
 Route::post('contact/update', 'update@ContactController');
@@ -50,6 +51,9 @@ Route::get('error', function() {
         echo $a;
     }
     p(123);
+});
+Route::get('exception', function() {
+   throw new Exception("exception test");
 });
 
 

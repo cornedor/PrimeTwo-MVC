@@ -15,13 +15,13 @@ class Input
     protected static $all;
 
     public static function all() {
-        if($_SERVER['REQUEST_METHOD'] === 'POST')
+        if($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST))
             $data = $_POST;
-        if($_SERVER['REQUEST_METHOD'] === 'GET')
+        if($_SERVER['REQUEST_METHOD'] === 'GET' && !empty($_GET))
             $data = $_GET;
         if(empty($data)) {
-            //TODO: throw error and fix whoops or custom exception handler
-            return false;
+            //TODO: why does this only return a string dump?? - fix
+            throw new \Exception("No Input data was found. Check Post and Get");
         }
 
         self::$all = self::normalizeInputData($data);
