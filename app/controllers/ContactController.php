@@ -20,7 +20,7 @@ class ContactController extends Controller
     }
 
     public function edit($contactId = null) {
-        //TODO: add $contactId or $contactName to the view.
+        //TODO: add $contactId or $contactName to the view. | passing parameters to views.
         View::render('contact.form');
 
         echo '<br/><hr/>';
@@ -30,12 +30,13 @@ class ContactController extends Controller
 
     public function update($contactId = null) {
         // if empty? geeft Can't use function return value in write context TODO fix dit
-//        if(empty($contactId)) {
-//            if(empty(Input::get('id'))) {
-//                return false;
-//            }
-//            $contactId = Input::get('id');
-//        }
+        // TODO: dit even met zijn 2en testen
+        if(empty($contactId)) {
+            if(empty(Input::get('id'))) {
+                return false;
+            }
+            $contactId = Input::get('id');
+        }
 
         // testing the Input class
         echo "<hr/>";

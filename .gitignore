@@ -12,6 +12,7 @@
 # .idea/dataSources.ids
 # .idea/dataSources.xml
 # .idea/sqlDataSources.xml
+
 # .idea/dynamic.xml
 # .idea/uiDesigner.xml
 
@@ -45,4 +46,11 @@ crashlytics-build.properties
 #Composer ignore
 /vendor/
 
+# Ignore application configs to keep personal userdata away from git
 config/database.php
+
+# just saving these unused files for later discussion
+# TODO: talk about the exception handling with koen and decide what to do with these files
+/app/exceptions/ExampleException.php
+/PrimeTwo/Framework/WhoopsException.php
+/app/exceptions

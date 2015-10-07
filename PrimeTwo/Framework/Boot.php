@@ -12,6 +12,8 @@ use Illuminate\Database\Capsule\Manager as Capsule;
 
 use PrimeTwo\Http\Route as Route;
 use PrimeTwo\Http\Session;
+use Whoops\Handler\PrettyPageHandler;
+use Whoops\Run;
 
 /**
  * Class Boot
@@ -29,10 +31,20 @@ class Boot
 
     public function __construct()
     {
+        $this->bootWhoops();
         $this->bootConfiguration();
         $this->bootSession();
         $this->bootDatabase();
         $this->bootRoute();
+    }
+
+    /**
+     * Boot Whoops exception handler
+     */
+    private function bootWhoops() {
+        $whoops = new Run;
+        $whoops->pushHandler(new PrettyPageHandler);
+        $whoops->register();
     }
 
     /**

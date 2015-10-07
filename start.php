@@ -7,7 +7,7 @@ define('ROOT',__DIR__.'/');
 spl_autoload_register('PrimeTwo\Framework\Boot::loader');
 new Boot;
 
-include ROOT.'app/migrations/example-migration.php';;
+//include ROOT.'app/migrations/example-migration.php';
 
-$create = new CreateContactTable();
-$create->run();
+//$create = new CreateContactTable();
+//$create->run();

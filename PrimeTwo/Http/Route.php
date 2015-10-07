@@ -18,7 +18,8 @@ class Route {
 
 	// Public functions
 
-	public function __construct() {
+	// include/read route files
+    public function __construct() {
 		$files = preg_grep('/^([^.])/', scandir(ROOT.'app/routes/'));
 		foreach($files as $file)
 			include ROOT.'app/routes/'.$file;
