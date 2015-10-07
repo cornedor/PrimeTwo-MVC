@@ -9,5 +9,7 @@ new Boot;
 
 include ROOT.'app/migrations/example-migration.php';;
 
-$create = new CreateContactTable();
-$create->run();
+
+//TODO migrations
+//$create = new CreateContactTable();
+//$create->run();
