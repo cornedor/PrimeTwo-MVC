@@ -20,45 +20,21 @@ class ContactController extends Controller
     }
 
     public function edit($contactId = null) {
-        $_GET['id'] = $contactId;
-        Debug::d(Input::all());
-        die();
-        if(empty($contactId)) {
-            if(empty(Input::get('id'))) {
-                // TODO: adding a redirect is probably better.
-                throw new Exception('$contactId was not found or empty.');
-            }
-            $contactId = Input::get('id');
-        }
+        //TODO: add $contactId or $contactName to the view.
+        View::render('contact.form');
 
-        $string = '<br/><hr/>Hi from edit@ContactController';
-
-        View::render('contact.form', compact('contactId', 'string'));
-
-        //Debug::d($contactId);
+        echo '<br/><hr/>';
+        Debug::d($contactId);
     }
 
     public function update($contactId = null) {
-        // if empty? geeft Can't use function return value in write context TODO fix dit
-        // TODO: dit even met zijn 2en testen
-        if(empty($contactId)) {
-            if(empty(Input::get('id'))) {
-                return false;
-            }
-            $contactId = Input::get('id');
-        }
+        $idCorrect = true;
+        $all = Input::all();
 
-        // testing the Input class
-        echo "<hr/>";
-        echo "Input::all() <br/>";
-        Debug::d(Input::all());
-        echo "Input::get('someRandomInput') <br/>";
-        Debug::d(Input::get('someRandomInput'));
-        echo "Input::get('notexisting') <br/>";
-        Debug::d(Input::get('notexisting'));
-        echo "<hr/>";
+        if(empty($contactId))
+            $idCorrect = false;
 
-        return 'update requested for:'.$contactId;
+        return View::render('contact.update', compact('idCorrect','contactId','all'));
     }
 
 }
