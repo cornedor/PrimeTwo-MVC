@@ -73,9 +73,12 @@ class Boot
 
     public static function loader($name){
         $app = self::$configuration->get('app');
-        $file = ROOT.str_replace('\\','/', $app['Facades'][$name].'.php');
-        if(file_exists($file))
-            include_once($file);
+        //TODO create facades class with exceptions
+        if(array_key_exists($name,$app['Facades'])){
+            $file = ROOT.str_replace('\\','/', $app['Facades'][$name].'.php');
+            if(file_exists($file))
+                include_once($file);
+        }
     }
 
 

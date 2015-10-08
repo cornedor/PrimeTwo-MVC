@@ -24,6 +24,8 @@ Route::get('/render', function(){
    View::render('layouts.main');
 });
 
+Route::get('update', 'update@ContactController');
+
 Route::get('/post', function() {
     ?>
     <form method="POST" action="/post">
