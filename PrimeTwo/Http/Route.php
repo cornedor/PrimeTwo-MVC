@@ -8,7 +8,7 @@
 
 namespace PrimeTwo\Http;
 
-use PrimeTwo\Framework\Debug as Debug;
+
 
 class Route {
 	// Class properties
@@ -106,28 +106,20 @@ class Route {
             $pattern = '/[a-zA-Z]*@[a-zA-Z]*/';
             if(preg_match($pattern, $callback)) {
                 $arrCallback = explode("@", $callback);
-                try {
-                    $class = new $arrCallback[1]();
-                    if(!empty(self::$paramData))
-                        $result = call_user_func_array([$class,$arrCallback[0]], self::$paramData);
-                    else
-                        $result = $class->$arrCallback[0]();
+                $class = new $arrCallback[1]();
+                if(!empty(self::$paramData))
+                    $result = call_user_func_array([$class,$arrCallback[0]], self::$paramData);
+                else
+                    $result = $class->$arrCallback[0]();
 
-                    self::$match = true;
-                    echo $result;
-                } catch(\Exception $e) {
-                    Debug::d($e->getMessage());
-                    // TODO: add whoops or custom errorhandling support?
-                    return false;
-                }
+                self::$match = true;
+                echo $result;
             } else {
                 // doesn't match method@controller pattern
-                // TODO: add whoops or custom errorhandler support?
-                return false;
+                throw new \Exception("method@controller pair not found in: ".$callback);
             }
         }
-        // TODO: add whoops or custom errorhandler support?
-        return false;
+        throw new \Exception("callback was not callable or a string: ".$callback);
     }
 
     /**

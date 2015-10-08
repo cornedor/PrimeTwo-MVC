@@ -42,7 +42,7 @@ class View
                 extract($parameters);
             include File::stringToFile($name, $path);
         } else
-            //TODO: throw errors
+            throw new Exception("File: ".$name." not found in path: ".$path);
 
 
         return false;

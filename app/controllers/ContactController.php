@@ -15,13 +15,13 @@ class ContactController extends Controller
     public function index() {
 
         $string =  'index@ContactController says: contacts overview could be placed here';
-        View::render('contact.index', compact('string'));
+        View::render('contact.indextest', compact('string'));
 
     }
 
     public function edit($contactId = null) {
-        $_GET['id'] = $contactId;
-        Debug::d(Input::all());
+        // TODO: fix Input::all(), throw error when empty
+        Input::all();
         die();
         if(empty($contactId)) {
             if(empty(Input::get('id'))) {

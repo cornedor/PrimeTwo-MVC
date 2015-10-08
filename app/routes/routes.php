@@ -55,6 +55,9 @@ Route::get('error', function() {
 Route::get('exception', function() {
    throw new Exception("exception test");
 });
+Route::get('controllernotfound', 'asdasdasd');
+
+
 
 
 // this function only works correctly at the bottom of the index
