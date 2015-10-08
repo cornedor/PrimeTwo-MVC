@@ -13,7 +13,7 @@ class ExampleException extends WhoopsException {
 
     public function __construct($string) {
         parent::__construct();
-        throw new Exception($string);
+        throw new \Exception($string);
     }
 
 }

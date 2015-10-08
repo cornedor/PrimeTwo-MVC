@@ -9,19 +9,19 @@
 namespace PrimeTwo\Http;
 
 
-
 class Input
 {
     protected static $all;
 
     public static function all() {
+        // TODO: count vs empty
         if($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST))
             $data = $_POST;
         if($_SERVER['REQUEST_METHOD'] === 'GET' && !empty($_GET))
             $data = $_GET;
         if(empty($data)) {
-            //TODO: why does this only return a string dump?? - fix
-            throw new \Exception("No Input data was found. Check Post and Get");
+            // TODO: why does this only return a string dump?? - fix
+            throw new \ExampleException("data is empty");
         }
 
         self::$all = self::normalizeInputData($data);
