@@ -9,9 +9,9 @@
 namespace PrimeTwo\Framework;
 
 use Illuminate\Database\Capsule\Manager as Capsule;
-
-use PrimeTwo\Http\Route as Route;
+use PrimeTwo\Http\Route;
 use PrimeTwo\Http\Session;
+use PrimeTwo\Resources\Migrations;
 
 /**
  * Class Boot
@@ -32,6 +32,7 @@ class Boot
         $this->bootConfiguration();
         $this->bootSession();
         $this->bootDatabase();
+        $this->bootMigrations();
         $this->bootRoute();
     }
 
@@ -45,6 +46,10 @@ class Boot
         $capsule->setAsGlobal();
         $capsule->bootEloquent();
 
+    }
+
+    private function bootMigrations(){
+        new Migrations;
     }
 
     /**
