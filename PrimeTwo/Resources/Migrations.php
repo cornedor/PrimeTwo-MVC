@@ -82,7 +82,7 @@ class Migrations
         $split = explode('.',$file);
 
         if(count($split) < 2 || !is_numeric($split[0]))
-            throw new \Exception($file.'is an invalid migration filename.');
+            throw new \Exception($file.' is an invalid migration filename.');
 
         $order = $split[0];
         $migration = $split[1];
