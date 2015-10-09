@@ -32,6 +32,7 @@ class Boot
         $this->bootConfiguration();
         $this->bootSession();
         $this->bootDatabase();
+        $this->bootMigrations();
         $this->bootRoute();
     }
 
