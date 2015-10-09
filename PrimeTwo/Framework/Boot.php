@@ -9,9 +9,9 @@
 namespace PrimeTwo\Framework;
 
 use Illuminate\Database\Capsule\Manager as Capsule;
-
-use PrimeTwo\Http\Route as Route;
+use PrimeTwo\Http\Route;
 use PrimeTwo\Http\Session;
+use PrimeTwo\Resources\Migrations;
 use Whoops\Handler\PrettyPageHandler;
 use Whoops\Run;
 
@@ -31,10 +31,11 @@ class Boot
 
     public function __construct()
     {
-        $this->bootWhoops();
         $this->bootConfiguration();
+        $this->bootWhoops();
         $this->bootSession();
         $this->bootDatabase();
+        $this->bootMigrations();
         $this->bootRoute();
     }
 
@@ -46,7 +47,7 @@ class Boot
         $whoops->pushHandler(new PrettyPageHandler);
         $whoops->register();
     }
-
+    
     /**
      * Boot database connection
      */
@@ -57,6 +58,10 @@ class Boot
         $capsule->setAsGlobal();
         $capsule->bootEloquent();
 
+    }
+
+    private function bootMigrations(){
+        new Migrations;
     }
 
     /**
