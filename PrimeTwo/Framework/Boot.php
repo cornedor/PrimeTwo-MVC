@@ -43,9 +43,17 @@ class Boot
      * Boot Whoops exception handler
      */
     private function bootWhoops() {
-        $whoops = new Run;
-        $whoops->pushHandler(new PrettyPageHandler);
-        $whoops->register();
+        if(self::$configuration->get('app')['development']) {
+            error_reporting(E_ALL);
+            ini_set('display_errors', 'On');
+
+            $whoops = new Run;
+            $whoops->pushHandler(new PrettyPageHandler);
+            $whoops->register();
+        } else {
+            error_reporting(0);
+            ini_set('display_errors', 'Off');
+        }
     }
     
     /**

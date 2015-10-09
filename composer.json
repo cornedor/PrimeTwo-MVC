@@ -21,6 +21,6 @@
     "psr-0": {
       "PrimeTwo": ""
     },
-    "classmap" : ["app/controllers", "app/exceptions", "app/migrations", "app/models"]
+    "classmap" : ["app/controllers", "app/migrations", "app/models"]
   }
 }

@@ -14,14 +14,12 @@ class Input
     protected static $all;
 
     public static function all() {
-        // TODO: count vs empty
         if($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST))
             $data = $_POST;
         if($_SERVER['REQUEST_METHOD'] === 'GET' && !empty($_GET))
             $data = $_GET;
         if(empty($data)) {
-            // TODO: why does this only return a string dump?? - fix
-            throw new \ExampleException("data is empty");
+            throw new \Exception("No valid Input data could be found in the ".$_SERVER['REQUEST_METHOD'].' super global.');
         }
 
         self::$all = self::normalizeInputData($data);
