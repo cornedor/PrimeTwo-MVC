@@ -118,8 +118,8 @@ class Route {
                 // doesn't match method@controller pattern
                 throw new \Exception("method@controller pair not found in: ".$callback);
             }
-        }
-        throw new \Exception("callback was not callable or a string: ".$callback);
+        } else
+            throw new \Exception("callback was not callable or a string: ".$callback);
     }
 
     /**
