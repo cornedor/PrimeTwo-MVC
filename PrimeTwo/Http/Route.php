@@ -31,12 +31,11 @@ class Route {
 	 * @return bool|mixed			Either the results of the callback or false is returned.
 	 */
 	public static function notFound($callback) {
-		if(self::$match) {
+		if(self::$match)
 			return false;
-		}
 
         self::$match = true;
-        return call_user_func($callback, $_SERVER['REQUEST_URI']);
+        return self::runCallback($callback);
 	}
 
     /**
@@ -90,6 +89,7 @@ class Route {
      * Run either a class::method for strings or run call_user_func for function callbacks
      * @param $callback
      * @return bool|mixed
+     * @throws \Exception
      */
     private static function runCallback($callback) {
         // check if it is a callable/function
@@ -167,7 +167,7 @@ class Route {
 				$matches++;
 				// other option:
 				// instead of $k use $appRoute[$k] which results in {$foo} = $v
-				self::$paramData[$k] = $v;
+				self::$paramData[$k] = self::normalizeUriParam($v);
 			} else {
 				// 1 mismatch == no match
 				$matches = 0;
@@ -181,6 +181,10 @@ class Route {
 		}
 		return false;
 	}
+
+    private static function normalizeUriParam($parameter) {
+        return urldecode($parameter);
+    }
 
 	/**
 	 * Check if a part of the application route and a part of the request uri match.

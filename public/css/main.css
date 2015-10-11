@@ -1,0 +1,101 @@
+html,body { 
+	height:100%;
+	background: #00796B;
+}
+
+nav.navbar {
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+.homepage, .contactForm, .docsIndex, .about {
+	color: #fff;
+	background: #2C3E50;
+}
+
+.homepage {
+	text-align: center;
+}
+
+.img-centered {
+	margin: 0 auto;
+}
+
+.homepage .container, .contactForm .container, .docsIndex .container, .about .container {
+	padding-top: 100px;
+	padding-bottom: 200px;
+}
+
+.homepage img {
+	display: block;
+	margin: 0 auto 20px;
+}
+
+.homepage .intro-text .name {
+	display: block;
+	text-transform: uppercase;
+	font-size: 2em;
+	font-weight: 700;
+}
+
+.homepage .intro-text .madeby {
+	font-size: 1.25em;
+	font-weight: 300;
+}
+
+@media(min-width:768px) {
+	.homepage .container {
+		padding-top: 100px;
+	}
+
+	.homepage .intro-text .name {
+		font-size: 4.75em;
+	}
+
+	.homepage .intro-text .madeby {
+		font-size: 1.75em;
+	}
+}
+
+img.header-logo {
+	max-width: 65%;
+}
+
+
+
+.contactForm {
+	text-align: left;
+}
+
+.contactFormLegend {
+	color: #fff;
+}
+
+
+
+
+
+
+
+
+
+
+footer {
+    text-align: center;
+    padding: 26px 0;
+    color: #B2DFDB;
+}
+
+footer .footerCopyright {
+    font-size: 1.2em;
+}
+
+
+
+.reset-margin-right {
+	margin-right: 0 !important;
+}
+
+.reset-padding {
+	padding: 0 !important;
+}
