@@ -41,6 +41,19 @@ class Session {
     }
 
     /**
+     * Unset a key from the session superglobal.
+     * @param $key
+     * @return bool
+     */
+    public static function removeKey($key) {
+        if(isset($_SESSION[$key])) {
+            unset($_SESSION[$key]);
+            return true;
+        }
+        return false;
+    }
+
+    /**
      * Destroy the user session
      */
     public static function destroy(){

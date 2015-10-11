@@ -9,19 +9,23 @@
 namespace PrimeTwo\Framework;
 
 Class Debug {
-	
-	public function __construct() {
 
-	}
-
-	public static function dd($data) {
+    /**
+     * Simple dump and die function. Print something & stop doing everything else.
+     * @param $data
+     */
+    public static function dd($data) {
 		echo "<pre>";
 		var_dump($data);
 		echo "</pre>";
 		die();
 	}
 
-	public static function d($data) {
+    /**
+     * Like Debug::dd() but without the die. Keeps application going.
+     * @param $data
+     */
+    public static function d($data) {
 		echo "<pre>";
 		var_dump($data);
 		echo "</pre>";

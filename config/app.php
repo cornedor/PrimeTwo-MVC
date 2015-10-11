@@ -1,14 +1,17 @@
 <?php
 
-// TODO: talk about this. the reason i do this is to use the APP_URL in views
-define('APP_URL', 'http://primetwo.dev');
-
 return array(
-
+    // Application name goes here.
     'name' => 'PrimeTwo Demo App',
+
+    // Application url
     'url' => 'http://primetwo.dev',
+
+    // Application email address
     'email' => 'info@primetwo.nl',
 
+    // Is this application in development?
+    // Enables error reporting for true.
     'development' => true,
 
     // Facades for including classes with static functions ( like render )
