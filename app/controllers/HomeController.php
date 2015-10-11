@@ -38,10 +38,10 @@ class HomeController extends Controller
     }
 
     public function about() {
-        $team = User::all()->where('role_id', 0);
+        // TODO: ->where('role', <team_role>)
+        $team = User::all();
         $title = "About us";
         $appConfig = $this->appConfig;
-        Debug::dd($team);
         View::render('about.index', compact('title', 'team', 'appConfig'));
     }
 

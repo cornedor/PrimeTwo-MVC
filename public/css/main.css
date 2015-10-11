@@ -71,7 +71,10 @@ img.header-logo {
 	color: #fff;
 }
 
-
+.team-member-picture {
+	max-height: 250px;
+	width: 250px;
+}
 
 
 
@@ -98,4 +101,8 @@ footer .footerCopyright {
 
 .reset-padding {
 	padding: 0 !important;
+}
+
+.ta-center {
+	text-align: center !important;
 }

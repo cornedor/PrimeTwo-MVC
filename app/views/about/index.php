@@ -1,12 +1,12 @@
 <section class="about">
 
 	<div class="container">
+		<h2 class="">The people behind PrimeTwo</h2>
 		<div class="row">
-			<h2>The people behind PrimeTwo</h2>
 			<?php foreach ($team as $member): ?>
-				<div class="col-lg-6">
+				<div class="col-lg-4 ta-center">
 					<h3><?php echo $member->fullName; ?></h3>
-					<img class="img-circle" src="<?php echo $appConfig['url'].$member->picture; ?>" alt="<?php echo $member->fullName; ?>'s picture.">
+					<img class="team-member-picture img-circle" src="<?php echo $appConfig['url'].$member->picture; ?>" alt="<?php echo $member->fullName; ?>'s picture.">
 				</div>
 			<?php endforeach; ?>
 		</div>
