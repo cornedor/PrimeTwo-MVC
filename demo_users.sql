@@ -1,0 +1,2 @@
+INSERT INTO primetwo.users (id, username, password, role_id, created_at, updated_at, picture, fullName) VALUES (1, 'chameleon', 'habbo123', 0, '2015-10-11 16:50:02', '2015-10-11 16:50:05', '/img/koen.jpg', 'Koen Hendriks');
+INSERT INTO primetwo.users (id, username, password, role_id, created_at, updated_at, picture, fullName) VALUES (2, 'peterzen', 'habbo123', 0, '2015-10-11 16:50:28', '2015-10-11 16:50:30', '/img/peter.jpg', 'Peter Schriever');

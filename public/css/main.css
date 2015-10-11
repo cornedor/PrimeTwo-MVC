@@ -11,6 +11,8 @@ nav.navbar {
 .homepage, .contactForm, .docsIndex, .about {
 	color: #fff;
 	background: #2C3E50;
+	min-height: 90%;
+	
 }
 
 .homepage {
