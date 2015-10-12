@@ -1,5 +1,7 @@
-# PrimeTwo MVC Framework
+### PrimeTwo MVC Framework
 
-TODO: Fill README.md
-
-- add config/database.php , use the database.example.php file for structure.
+## Version
+v1.0.0
+ 
+## Documentation
+Dcoumentation can be found at : http://primetwo.nl/documentation
