@@ -1,3 +1,3 @@
-INSERT INTO primetwo.docs (id, title, text, `order`, created_at, updated_at) VALUES (1, 'Installation', 'Installation instructions unclear, got dick stuck in ventilator.', 0, '2015-10-11 16:24:26', '2015-10-11 16:24:29');
-INSERT INTO primetwo.docs (id, title, text, `order`, created_at, updated_at) VALUES (2, 'Get Started', 'Git started already chump! Just do it! Make your dreams come true!', 1, '2015-10-11 16:25:14', '2015-10-11 16:25:16');
-INSERT INTO primetwo.docs (id, title, text, `order`, created_at, updated_at) VALUES (3, 'To be continued', 'Be sure to tune in the next time so you dont miss anything!', 2, '2015-10-11 16:26:49', '2015-10-11 16:26:51');
+INSERT INTO primetwo_prime.docs (`id`, `title`, `text`, `order`, `created_at`, `updated_at`) VALUES (1, 'Installation', 'Installation instructions unclear, got dick stuck in ventilator.', 0, '2015-10-11 16:24:26', '2015-10-11 16:24:29');
+INSERT INTO primetwo_prime.docs (`id`, `title`, `text`, `order`, `created_at`, `updated_at`) VALUES (2, 'Get Started', 'Git started already chump! Just do it! Make your dreams come true!', 1, '2015-10-11 16:25:14', '2015-10-11 16:25:16');
+INSERT INTO primetwo_prime.docs (`id`, `title`, `text`, `order`, `created_at`, `updated_at`) VALUES (3, 'To be continued', 'Be sure to tune in the next time so you dont miss anything!', 2, '2015-10-11 16:26:49', '2015-10-11 16:26:51');

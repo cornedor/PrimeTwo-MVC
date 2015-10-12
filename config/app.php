@@ -2,10 +2,10 @@
 
 return array(
     // Application name goes here.
-    'name' => 'PrimeTwo Demo App',
+    'name' => 'PrimeTwo MVC Framework',
 
     // Application url
-    'url' => 'http://primetwo.dev',
+    'url' => 'http://primetwo.nl',
 
     // Application email address
     'email' => 'info@primetwo.nl',
