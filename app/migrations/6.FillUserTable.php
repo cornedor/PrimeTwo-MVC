@@ -6,7 +6,21 @@ use Illuminate\Database\Schema\Blueprint;
 class FillUserTable extends Capsule {
 
     public function run() {
-       User::query(file_get_contents(ROOT.'demo_users.sql'));
+        User::create([
+           'username' => 'chameleon',
+           'password' => 'habbo123',
+           'role_id' => '0',
+           'picture' => '/img/koen.jpg',
+           'fullname' => 'Koen Hendriks',
+        ]);
+
+        User::create([
+            'username' => 'peterzen',
+            'password' => 'habbo123',
+            'role_id' => '0',
+            'picture' => '/img/peter.jpg',
+            'fullname' => 'Peter Schriever',
+        ]);
     }
 
 
