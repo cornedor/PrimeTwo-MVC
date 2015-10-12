@@ -31,7 +31,7 @@
 			<input type="text" class="form-control col-lg-8" placeholder="Search">
 		</form-->
 		<ul class="nav navbar-nav navbar-right">
-			<li><a href="https://github.com/PrimeTwo/PrimeTwo-MVC">Github</a></li>
+			<li><a href="https://github.com/PrimeTwo/PrimeTwo-MVC"><span class="fa fa-2x fa-github"></span> </a></li>
 			<!-- li>
 				<a class="reset-padding" href="https://github.com/PrimeTwo/PrimeTwo-MVC">
 					<button type="button" class="btn btn-flat btn-material-lime">Github</button>
