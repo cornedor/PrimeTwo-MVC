@@ -33,6 +33,9 @@
 	<script src="<?php echo $appConfig['url']; ?>/vendor/bootstrap-material-design-master/dist/js/material.min.js"></script>
 	<script src="<?php echo $appConfig['url']; ?>/vendor/bootstrap-material-design-master/dist/js/ripples.min.js"></script>
 
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
 	<!-- Custom style -->
 	<link rel="stylesheet" href="<?php echo $appConfig['url']; ?>/css/main.css">
 	<!-- Custom javascript -->
