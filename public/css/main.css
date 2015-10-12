@@ -3,6 +3,10 @@ html,body {
 	background: #00796B;
 }
 
+.symver{
+	display: block;
+}
+
 nav.navbar {
 	padding-left: 10px;
 	padding-right: 10px;
@@ -33,7 +37,7 @@ nav.navbar {
 	margin: 0 auto 20px;
 }
 
-.homepage .intro-text .name {
+.homepage .intro-text .name{
 	display: block;
 	text-transform: uppercase;
 	font-size: 2em;
@@ -63,7 +67,11 @@ img.header-logo {
 	max-width: 65%;
 }
 
-
+.navbar-right > li > a {
+	padding-bottom: 15px;
+	padding-top: 16px;
+	padding-right: 20px;
+}
 
 .contactForm {
 	text-align: left;
@@ -78,12 +86,10 @@ img.header-logo {
 	width: 250px;
 }
 
-
-
-
-
-
-
+pre {
+	padding: 0;
+	border: 0;
+}
 
 footer {
     text-align: center;
@@ -107,4 +113,8 @@ footer .footerCopyright {
 
 .ta-center {
 	text-align: center !important;
+}
+
+.well {
+	color: #000;
 }

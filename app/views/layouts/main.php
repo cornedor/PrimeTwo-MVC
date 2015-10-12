@@ -33,9 +33,12 @@
 	<script src="<?php echo $appConfig['url']; ?>/vendor/bootstrap-material-design-master/dist/js/material.min.js"></script>
 	<script src="<?php echo $appConfig['url']; ?>/vendor/bootstrap-material-design-master/dist/js/ripples.min.js"></script>
 
+	<!-- Highlight JS -->
+	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.8.0/styles/default.min.css">
+	<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.8.0/highlight.min.js"></script>
+
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-
 	<!-- Custom style -->
 	<link rel="stylesheet" href="<?php echo $appConfig['url']; ?>/css/main.css">
 	<!-- Custom javascript -->
@@ -53,6 +56,11 @@
     View::render('layouts.footer', null, true);
 
 	?>
-	<script>$.material.init();</script>
+	<script>
+		$.material.init();
+		hljs.initHighlightingOnLoad();
+	</script>
+	<!-- Github buttons -->
+	<script async defer id="github-bjs" src="https://buttons.github.io/buttons.js"></script>
 </body>
 </html>
