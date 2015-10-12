@@ -12,6 +12,13 @@ class Docs extends Eloquent {
     protected $table = 'docs';
 
     /**
+     * Fillable fields for documentations
+     *
+     * @var array
+     */
+    protected $fillable = ['title','text','order'];
+
+    /**
      * The database table used for SoftDeleting
      *
      * @var array

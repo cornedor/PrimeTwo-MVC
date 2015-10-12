@@ -11,6 +11,8 @@ class User extends Eloquent {
      */
     protected $table = 'users';
 
+    protected $fillable = ['username','password','role_id','picture','fullname'];
+
     /**
      * The database table used for SoftDeleting
      *
