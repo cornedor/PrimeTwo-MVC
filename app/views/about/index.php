@@ -5,7 +5,7 @@
 		<div class="row">
 			<?php foreach ($team as $member): ?>
 				<div class="col-lg-4 ta-center">
-					<h3><?php echo $member->fullName; ?></h3>
+					<h3><?php echo $member->fullname; ?></h3>
 					<img class="team-member-picture img-circle" src="<?php echo $appConfig['url'].$member->picture; ?>" alt="<?php echo $member->fullName; ?>'s picture.">
 				</div>
 			<?php endforeach; ?>

@@ -9,7 +9,6 @@ class CreateUserTable extends Capsule {
             $table->increments('id');
             $table->string('username');
             $table->string('password');
-            // TODO: add picture & fullname columns
             $table->integer('role_id');
             $table->timestamps();
         });

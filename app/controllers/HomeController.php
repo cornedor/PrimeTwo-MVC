@@ -93,7 +93,7 @@ class HomeController extends Controller
         if(isset($mail) && $mail === true) {
             // debug the message
             // echo $message; die();
-            Session::set('alert', ['status' => "sucess", 'message' => "A message was successfully sent. Expect us to reply within 48 hours. Don't forget to check your spam box."]);
+            Session::set('alert', ['status' => "success", 'message' => "A message was successfully sent. Expect us to reply within 48 hours. Don't forget to check your spam box."]);
         } else {
             Session::set('alert', ['status' => "warning", 'message' => "Your message could not be send, please try again in a couple of minutes. If problems persist please let us know by mailing to info@primetwo.nl"]);
         }
