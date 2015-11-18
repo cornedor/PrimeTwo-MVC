@@ -2,6 +2,14 @@
 
 use PrimeTwo\Http\Route as Route;
 
+Route::get('/example',function(){
+    echo 'Working route example!';
+});
+
+Route::get('/example/{$number}',function($number){
+    echo 'Working route '.$number.' example!';
+});
+
 // Homepage route
 Route::get('/', 'index@HomeController');
 

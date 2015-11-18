@@ -1,18 +1,18 @@
 <section class="docsIndex">
 
 <div class="container">
-	<div class="alert alert-warning">
-		<strong><span class="fa fa-sticky-note-o"></span> TODO</strong>
-		<br/>
-		<ul>
-			<li>Add documentation for migrations in the framework. </li>
-			<li>Add documentation for advanced routing. </li>
-			<li>Add documentation for HTML helpers. </li>
-			<li>Add documentation for Namespaces. </li>
-			<li>Add documentation for General file structure. </li>
-			<li>Add documentation for Templating Views with layouts. </li>
-		</ul>
-	</div>
+<!--	<div class="alert alert-warning">-->
+<!--		<strong><span class="fa fa-sticky-note-o"></span> TODO</strong>-->
+<!--		<br/>-->
+<!--		<ul>-->
+<!--			<li>Add documentation for migrations in the framework. </li>-->
+<!--			<li>Add documentation for advanced routing. </li>-->
+<!--			<li>Add documentation for HTML helpers. </li>-->
+<!--			<li>Add documentation for Namespaces. </li>-->
+<!--			<li>Add documentation for General file structure. </li>-->
+<!--			<li>Add documentation for Templating Views with layouts. </li>-->
+<!--		</ul>-->
+<!--	</div>-->
 
 	<div class="row well">
 		<div class="col-xs-12">

@@ -11,7 +11,6 @@ use PrimeTwo\Framework\FormValidation;
 use PrimeTwo\Http\Input;
 use PrimeTwo\Http\Session;
 use PrimeTwo\Resources\Controller;
-use PrimeTwo\Framework\Debug;
 
 class HomeController extends Controller
 {
@@ -55,7 +54,7 @@ class HomeController extends Controller
     public function about() {
         // TODO: ->where('role', <team_role>)
         $team = User::all();
-        $title = "About us";
+        $title = "The people behind PrimeTwo";
         $appConfig = $this->appConfig;
         View::render('about.index', compact('title', 'team', 'appConfig'));
     }

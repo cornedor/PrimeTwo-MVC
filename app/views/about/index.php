@@ -1,7 +1,7 @@
 <section class="about">
 
 	<div class="container">
-		<h2 class="text-center">The people behind PrimeTwo</h2>
+		<h2 class="text-center"><?php echo $title; ?></h2>
             <div class="row">
                 <?php foreach ($team as $member): ?>
                     <div class="col-lg-6 ta-center">
