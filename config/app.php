@@ -5,7 +5,7 @@ return array(
     'name' => 'PrimeTwo MVC Framework',
 
     // Application url
-    'url' => 'http://primetwo.nl',
+    'url' => 'https://primetwo.nl',
 
     // Application email address
     'email' => 'info@primetwo.nl',
