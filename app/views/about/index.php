@@ -8,7 +8,7 @@
                         <h3><?php echo $member->fullname; ?></h3>
                         <img class="team-member-picture img-circle" 
 			     <?php
-			     if ($member->picture == "peter.jpg") {
+			     if ($member->picture == "/img/peter.jpg") {
 				echo 'style="width: auto; border-radius: 2%; max-height: 320px;"';
 			     }
 			     ?>
